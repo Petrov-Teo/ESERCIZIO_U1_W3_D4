@@ -27,9 +27,8 @@ const tabellone = () => {
 
   for (let index = 1; index <= 76; index++) {
     numeriPosizioni.push(index);
-
     const numCell = document.createElement("div");
-    numCell.classList.add("celleDiv");
+    numCell.classList.add("celleDiv", "celleEstratte");
 
     const numCellConten = document.createElement("h3");
     numCellConten.innerText = index;
@@ -39,4 +38,19 @@ const tabellone = () => {
   }
 };
 
-tabellone();
+const numeriEstratti = [];
+
+const startNumeri = document.getElementById("pulsantStart");
+
+startNumeri.addEventListener("click", (event) => {
+  const numeriRandom = Math.floor(Math.random() * 76) + 1;
+  numeriEstratti.push(numeriRandom);
+  console.log(numeriEstratti);
+
+  const celle = document.querySelectorAll(".celleEstratte");
+  celle[numeriRandom - 1];
+});
+
+window.addEventListener("DOMContentLoaded", (event) => {
+  tabellone();
+});
