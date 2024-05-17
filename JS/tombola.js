@@ -28,7 +28,10 @@ const tabellone = () => {
   for (let index = 1; index <= 76; index++) {
     numeriPosizioni.push(index);
     const numCell = document.createElement("div");
-    numCell.classList.add("celleDiv", "celleEstratte");
+    numCell.classList.add("celleDiv");
+    if (numCell.index === celle.index + 1) {
+      classList.add("celleEstratte");
+    }
 
     const numCellConten = document.createElement("h3");
     numCellConten.innerText = index;
@@ -41,13 +44,13 @@ const tabellone = () => {
 const numeriEstratti = [];
 
 const startNumeri = document.getElementById("pulsantStart");
+const celle = document.querySelectorAll(".celleEstratte");
 
 startNumeri.addEventListener("click", (event) => {
   const numeriRandom = Math.floor(Math.random() * 76) + 1;
   numeriEstratti.push(numeriRandom);
   console.log(numeriEstratti);
 
-  const celle = document.querySelectorAll(".celleEstratte");
   celle[numeriRandom - 1];
 });
 
